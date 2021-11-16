@@ -25,7 +25,6 @@
                     </div>
                     <div>
                         {{-- favoriteボタン --}}
-                        @if (Auth::id() == $micropost->user_id)
                             @if (Auth::user()->is_favorite($micropost->id))
                                 {{-- unfavoriteボタンのフォーム --}}
                                 {!! Form::open(['route' => ['favorites.unfavorite', $micropost->id], 'method' => 'delete']) !!}
@@ -37,7 +36,6 @@
                                 {!! Form::submit('Favorite', ['class' => 'btn btn-warning btn-sm']) !!}
                                 {!! Form::close() !!}
                             @endif
-                        @endif
                     </div>
                     </div>
                 </div>
